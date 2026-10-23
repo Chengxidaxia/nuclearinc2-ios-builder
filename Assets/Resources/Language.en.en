@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root><!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+	<data name="Chernobyl" xml:space="preserve">
+		<value>切尔诺贝利</value>
+	</data>
+	<data name="ChooseLanguage" xml:space="preserve">
+		<value>选择语言</value>
+	</data>
+	<data name="ChooseLevel" xml:space="preserve">
+		<value>难度选择</value>
+	</data>
+	<data name="ChooseSeason" xml:space="preserve">
+		<value>选择章节</value>
+	</data>
+	<data name="ContinueGame" xml:space="preserve">
+		<value>继续游戏</value>
+	</data>
+	<data name="DangerArea" xml:space="preserve">
+		<value>危险区域</value>
+	</data>
+	<data name="EarthText" xml:space="preserve">
+		<value>地震! 关闭电源系统. 坚持到我们恢复控制!</value>
+	</data>
+	<data name="Effective" xml:space="preserve">
+		<value>有效</value>
+	</data>
+	<data name="Energy" xml:space="preserve">
+		<value>能源:</value>
+	</data>
+	<data name="Exit" xml:space="preserve">
+		<value>出口</value>
+	</data>
+	<data name="FireDes" xml:space="preserve">
+		<value>灭火系统 .
+拯救烤焦的鸡蛋和附近的城镇.
+</value>
+	</data>
+	<data name="FireFightText" xml:space="preserve">
+		<value>激活消防系统</value>
+	</data>
+	<data name="FireText" xml:space="preserve">
+		<value>着火了！ 迅速扑灭，直到工人死亡或反应堆未过热!</value>
+	</data>
+	<data name="FuelRecharge" xml:space="preserve">
+		<value>给燃料充电</value>
+	</data>
+	<data name="Fukushima" xml:space="preserve">
+		<value>福岛</value>
+	</data>
+	<data name="GameCompleted" xml:space="preserve">
+		<value>游戏完成！十八祝贺你!</value>
+	</data>
+	<data name="GameProgress" xml:space="preserve">
+		<value>游戏进度</value>
+	</data>
+	<data name="GenerTemp" xml:space="preserve">
+		<value>涡轮温度</value>
+	</data>
+	<data name="KlapanDes" xml:space="preserve">
+		<value>阀门.
+倾倒多余的压力，防止爆炸，增加辐射水平.
+</value>
+	</data>
+	<data name="Language" xml:space="preserve">
+		<value>语言</value>
+	</data>
+	<data name="Level" xml:space="preserve">
+		<value>关卡</value>
+	</data>
+	<data name="LikeIt" xml:space="preserve">
+		<value>等级提升! 你喜欢它么?</value>
+	</data>
+	<data name="LoveAds" xml:space="preserve">
+		<value>没有人喜欢广告 - 微信关注十八汉化组</value>
+	</data>
+	<data name="Menu" xml:space="preserve">
+		<value>菜单</value>
+	</data>
+	<data name="Music" xml:space="preserve">
+		<value>音乐</value>
+	</data>
+	<data name="Next" xml:space="preserve">
+		<value>下一步</value>
+	</data>
+	<data name="NextLevel" xml:space="preserve">
+		<value>下个关卡</value>
+	</data>
+	<data name="NoEnergy" xml:space="preserve">
+		<value>能量不足</value>
+	</data>
+	<data name="NuclearPlant" xml:space="preserve">
+		<value>核电站</value>
+	</data>
+	<data name="Others" xml:space="preserve">
+		<value>其它的</value>
+	</data>
+	<data name="Pause" xml:space="preserve">
+		<value>暂停</value>
+	</data>
+	<data name="Phobia" xml:space="preserve">
+		<value>恐怖</value>
+	</data>
+	<data name="Power" xml:space="preserve">
+		<value>功率</value>
+	</data>
+	<data name="Radiation" xml:space="preserve">
+		<value>辐射</value>
+	</data>
+	<data name="RadiationDes" xml:space="preserve">
+		<value>防辐射.
+ 厌倦了购买新员工? 这是你的选择.
+</value>
+	</data>
+	<data name="Rate" xml:space="preserve">
+		<value>请微信关注十八汉化组（hanhuazu18），您的关注就是支持.</value>
+	</data>
+	<data name="RateIOS" xml:space="preserve">
+		<value>加入十八汉化组QQ群144738580. 一起玩游戏.</value>
+	</data>
+	<data name="ReactorDes" xml:space="preserve">
+		<value>改进反应堆.
+新反应堆可以承受高达2500度的温度!
+</value>
+	</data>
+	<data name="ReactorDestroyed" xml:space="preserve">
+		<value>反应堆已经摧毁了!</value>
+	</data>
+	<data name="ReactorPressure" xml:space="preserve">
+		<value>反应器压力</value>
+	</data>
+	<data name="ReactorTemp" xml:space="preserve">
+		<value>反应器温度</value>
+	</data>
+	<data name="RefuelDes" xml:space="preserve">
+		<value>更换燃料元件.
+ 将新燃料装入堆芯,增加辐射水平. 
+</value>
+	</data>
+	<data name="Replay" xml:space="preserve">
+		<value>重玩</value>
+	</data>
+	<data name="Replay0" xml:space="preserve">
+		<value>重玩</value>
+	</data>
+	<data name="RestoreGenerator" xml:space="preserve">
+		<value>恢复涡轮机</value>
+	</data>
+	<data name="RestoreWorker" xml:space="preserve">
+		<value>恢复工作者</value>
+	</data>
+	<data name="RodsDes" xml:space="preserve">
+		<value>降下控制棒.
+ 当电源关闭时，控制杆在自身重量下落入活动区域，从而降低反应.
+</value>
+	</data>
+	<data name="Safe" xml:space="preserve">
+		<value>安全</value>
+	</data>
+	<data name="SelfDes" xml:space="preserve">
+		<value>能源自给自足.
+来自涡轮发电机的能量用于运行核电站，在停电时有用.
+</value>
+	</data>
+	<data name="Share" xml:space="preserve">
+		<value>把十八汉化组分享给朋友!</value>
+	</data>
+	<data name="ShareText" xml:space="preserve">
+		<value>你有没有一个朋友会对这个游戏感兴趣？把十八汉化组分享给他!</value>
+	</data>
+	<data name="Start" xml:space="preserve">
+		<value>开始</value>
+	</data>
+	<data name="summer2018" xml:space="preserve">
+		<value>2018年夏天开启章节</value>
+	</data>
+	<data name="Time" xml:space="preserve">
+		<value>时间:</value>
+	</data>
+	<data name="TimeIsOver" xml:space="preserve">
+		<value>限时结束!</value>
+	</data>
+	<data name="ToMainMenu" xml:space="preserve">
+		<value>回到主菜单</value>
+	</data>
+	<data name="Transl1_1" xml:space="preserve">
+		<value>十八欢迎你们, 各位同学! 在我们开始接受您的教育之前，先享受一些乐趣并完成您的第一项任务 - 摧毁核电站!</value>
+	</data>
+	<data name="Transl1_2" xml:space="preserve">
+		<value>这里有一个小建议：尝试与游戏进行交互.记住你可以用手指缩放游戏场景</value>
+	</data>
+	<data name="Transl10_1" xml:space="preserve">
+		<value>嗨！现在，你可以买一个新的反应堆。任务是一样的. (但我们需要更多的能量)</value>
+	</data>
+	<data name="Transl11_1" xml:space="preserve">
+		<value>可爱的日本 .. 这样一个安静而美丽的海岸. 在2011年是绝对成功的.</value>
+	</data>
+	<data name="Transl11_2" xml:space="preserve">
+		<value>嗯，奇怪，我想我看到一波...</value>
+	</data>
+	<data name="Transl11_3" xml:space="preserve">
+		<value>哦，天哪！！谁会想到这会发生！我们所有的系统拒绝人工控制. 我不知道怎么办，但我们必须将反应堆和涡轮机的温度降低到100度以下。如果只有我们提前知道 ... </value>
+	</data>
+	<data name="Transl12_0" xml:space="preserve">
+		<value>我们的科学家发明了一种时间机器! 决定防止在切尔诺贝利核电站发生事故. 为了这个伟大的使命, 十八汉化组选择了你, 同志!</value>
+	</data>
+	<data name="Transl12_1" xml:space="preserve">
+		<value>1986年4月25日至26日在第4号反应堆的切尔诺贝利灾难发生在试图从涡轮发电机运转转子的试验中. 在突然停电期间，涡轮机必须通过惯性旋转并且泵送水通过反应堆的有效区域.</value>
+	</data>
+	<data name="Transl12_2" xml:space="preserve">
+		<value>达到2300度以上的反应器温度并将控制杆提升到最高位置，接下来，我们将关闭电源和安全系统！ 涡轮发电机将为您提供几秒的电力控制。调整参数，使反应堆冷却到300度以下。祝你好运!</value>
+	</data>
+	<data name="Transl12_3" xml:space="preserve">
+		<value>系统被禁用. 你有几秒钟的时间来控制. 尽你所能! 额... 能和十八一起控制反应堆是我的荣幸.</value>
+	</data>
+	<data name="Transl2_1" xml:space="preserve">
+		<value>我们很高兴再次见到你, 工程师! 在这个章节中, 让我们从基础开始. 具有核辐射的燃料元件会产生热量</value>
+	</data>
+	<data name="Transl2_2" xml:space="preserve">
+		<value>放置在核反应堆的核燃料.</value>
+	</data>
+	<data name="Transl2_3" xml:space="preserve">
+		<value>为了控制反应器, 我们准备了吸收 (控制) 棒. 当它们从反应堆堆芯中提起时, 核反应增加, 温度升高得更快. 当降落时, 反应会衰减.</value>
+	</data>
+	<data name="Transl2_4" xml:space="preserve">
+		<value>该面板上可以看到反应器的温度和压力。 如果超过允许值，将发生灾难 (就像你已经知道的那样). 压力取决于温度，稍后，您将获得有助于解决局限性的升级.</value>
+	</data>
+	<data name="Transl2_5" xml:space="preserve">
+		<value>练习时间: 首先，将反应器的温度提高到1000度.</value>
+	</data>
+	<data name="Transl2_6" xml:space="preserve">
+		<value>干得好，现在将反应堆的温度降低到50°C.</value>
+	</data>
+	<data name="Transl3_1" xml:space="preserve">
+		<value>你还活着，工程师！好吧，继续训练。泵将水泵入反应器。它将热量传递给涡轮机并冷却反应堆。 涡轮机中，蒸汽旋转翅片，发电机发电.</value>
+	</data>
+	<data name="Transl3_2" xml:space="preserve">
+		<value>涡轮机会过热，仔细观察其温度。这是泵控制滑块。滑块越高，反应器冷却得越多，涡轮机被加热得越多.</value>
+	</data>
+	<data name="Transl3_3" xml:space="preserve">
+		<value>要通过此考试，请将涡轮机加热至350度以上！反应器的温度应低于800.</value>
+	</data>
+	<data name="Transl3_4" xml:space="preserve">
+		<value>太好了，现在让涡轮机和反应堆冷却到100度以下.</value>
+	</data>
+	<data name="Transl4_1" xml:space="preserve">
+		<value>多么幸存的学生！ 到了这个时候，所有其他的学生都退学了。时间就是金钱！ 涡轮机的温度越高，功率越高，我们付出的代价就越大。电源显示在这里. 一般来说, 额 .. 先交700美元考核费!</value>
+	</data>
+	<data name="Transl5_1" xml:space="preserve">
+		<value>核燃料即将耗尽耗尽.燃油量显示在此刻度上.燃料越少，核燃料棒产生的热量就越少.要更换它们，请转到升级菜单并购买"核燃料再充电"
+注意! 核燃料的充电增加了辐射水平!
+</value>
+	</data>
+	<data name="Transl5_2" xml:space="preserve">
+		<value>您今天的任务是在时间耗尽之前计算出适量的能量.开始工作!</value>
+	</data>
+	<data name="Transl6_1" xml:space="preserve">
+		<value>有时候生活中会遇到一些小问题 - 咖啡溢出来, 着火, 地震.. 但是我们有足够的资源来对抗这个残酷的世界! 在升级菜单中可以找到: 阀门，灭火系统和辐射防护. 在适当的时间收集能量并活着回来!</value>
+	</data>
+	<data name="Transl7_1" xml:space="preserve">
+		<value>广播，现在预计会发生地震。不要忘记雨伞。另外，请查看升级菜单。那里你可以设置：自动控制杆下降和自给自足 </value>
+	</data>
+	<data name="Transl8_1" xml:space="preserve">
+		<value>我们需要更多的能量！今天你在等待一个全新的涡轮机.</value>
+	</data>
+	<data name="Transl9_1" xml:space="preserve">
+		<value>他们说他们已经采取了新的安全标准。一个有沙子的桶，你看，不再适合了。现在，你可以购买紧急冷却.</value>
+	</data>
+	<data name="TurbineDes" xml:space="preserve">
+		<value>改进涡轮发电机.
+更多的精力和金钱! 调整最高温度.
+</value>
+	</data>
+	<data name="Upgrade" xml:space="preserve">
+		<value>拖拽</value>
+	</data>
+	<data name="Upgrades" xml:space="preserve">
+		<value>拖拽</value>
+	</data>
+	<data name="Warning" xml:space="preserve">
+		<value>警告!</value>
+	</data>
+	<data name="WarningText" xml:space="preserve">
+		<value>危险区域</value>
+	</data>
+	<data name="WaterDes" xml:space="preserve">
+		<value>急救冷却.
+当智利辣椒太辣的时候.
+</value>
+	</data>
+	<data name="YouWon" xml:space="preserve">
+		<value>你赢了!</value>
+	</data>
+</root>

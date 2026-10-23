@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root><!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+	<data name="Chernobyl" xml:space="preserve">
+		<value>Tschernobyl</value>
+	</data>
+	<data name="ChooseLanguage" xml:space="preserve">
+		<value>wähle die sprache</value>
+	</data>
+	<data name="ChooseLevel" xml:space="preserve">
+		<value>wähle das level</value>
+	</data>
+	<data name="ChooseSeason" xml:space="preserve">
+		<value>Saison auswählen</value>
+	</data>
+	<data name="ContinueGame" xml:space="preserve">
+		<value>Spiel fortsetzen</value>
+	</data>
+	<data name="DangerArea" xml:space="preserve">
+		<value>Gefahrenbereich</value>
+	</data>
+	<data name="EarthText" xml:space="preserve">
+		<value>Erdbeben! Stromversorgungssysteme sind ausgeschaltet. Halte aus, bis wir die Kontrolle wiederhergestellt haben!</value>
+	</data>
+	<data name="Effective" xml:space="preserve">
+		<value>Effektivität</value>
+	</data>
+	<data name="Energy" xml:space="preserve">
+		<value>Energie</value>
+	</data>
+	<data name="Exit" xml:space="preserve">
+		<value>Ausgang</value>
+	</data>
+	<data name="FireDes" xml:space="preserve">
+		<value>Feuerlöschsystem .
+Speichert das verbrannte Rührei und die nächste Stadt.</value>
+	</data>
+	<data name="FireFightText" xml:space="preserve">
+		<value>Feuerlöschsystem aktivieren</value>
+	</data>
+	<data name="FireText" xml:space="preserve">
+		<value>Es gab ein Feuer! Schnell löschen, bis der Arbeiter gestorben ist oder der Reaktor nicht überhitzt ist!</value>
+	</data>
+	<data name="FuelRecharge" xml:space="preserve">
+		<value>Überlastung des Kraftstoffs</value>
+	</data>
+	<data name="Fukushima" xml:space="preserve">
+		<value>Fukushima</value>
+	</data>
+	<data name="GameCompleted" xml:space="preserve">
+		<value>Das Spiel abgeschlossen! Herzliche Glückwünsche!</value>
+	</data>
+	<data name="GameProgress" xml:space="preserve">
+		<value>spielfortschritt</value>
+	</data>
+	<data name="GenerTemp" xml:space="preserve">
+		<value>Turbinentemperatur</value>
+	</data>
+	<data name="KlapanDes" xml:space="preserve">
+		<value>Das Ventil
+Es setzt den Druck herab, um der Explosion vorzubeugen.</value>
+	</data>
+	<data name="Language" xml:space="preserve">
+		<value>Sprache</value>
+	</data>
+	<data name="Level" xml:space="preserve">
+		<value>level</value>
+	</data>
+	<data name="LikeIt" xml:space="preserve">
+		<value>Level ist zu ende gekommen!</value>
+	</data>
+	<data name="LoveAds" xml:space="preserve">
+		<value>Niemand mag die werbung - doch lässt sie diesen spiel kostenlos zu bleiben</value>
+	</data>
+	<data name="Menu" xml:space="preserve">
+		<value>Menu</value>
+	</data>
+	<data name="Music" xml:space="preserve">
+		<value>Musik</value>
+	</data>
+	<data name="Next" xml:space="preserve">
+		<value>Ferner</value>
+	</data>
+	<data name="NextLevel" xml:space="preserve">
+		<value>Nächste Ebene</value>
+	</data>
+	<data name="NoEnergy" xml:space="preserve">
+		<value>keine energie</value>
+	</data>
+	<data name="NuclearPlant" xml:space="preserve">
+		<value>KERNKRAFTWERK</value>
+	</data>
+	<data name="Others" xml:space="preserve">
+		<value>Andere</value>
+	</data>
+	<data name="Pause" xml:space="preserve">
+		<value>Pause</value>
+	</data>
+	<data name="Phobia" xml:space="preserve">
+		<value>phobie</value>
+	</data>
+	<data name="Power" xml:space="preserve">
+		<value>Arbeitsleistung</value>
+	</data>
+	<data name="Radiation" xml:space="preserve">
+		<value>Strahlung</value>
+	</data>
+	<data name="RadiationDes" xml:space="preserve">
+		<value>Der Strahlenschutz
+Sind Sie ermüdet von den Ausgaben für neue Arbeiter? Das ist Ihre Wahl.</value>
+	</data>
+	<data name="Rate" xml:space="preserve">
+		<value>Sie unterstützen mich sehr, wenn die Rate des Spiel auf Google Play</value>
+	</data>
+	<data name="RateIOS" xml:space="preserve">
+		<value>Sie unterstützen mich sehr, wenn die Rate des Spiel auf App Store</value>
+	</data>
+	<data name="ReactorDes" xml:space="preserve">
+		<value>Verbesserung des Reaktors.
+Der neue Reaktor hält einer Erwärmung von bis zu 2500 Grad stand!</value>
+	</data>
+	<data name="ReactorDestroyed" xml:space="preserve">
+		<value>Reaktor zerstört!</value>
+	</data>
+	<data name="ReactorPressure" xml:space="preserve">
+		<value>Reaktordruck</value>
+	</data>
+	<data name="ReactorTemp" xml:space="preserve">
+		<value>Reaktortemperatur</value>
+	</data>
+	<data name="RefuelDes" xml:space="preserve">
+		<value>Die Ersetzung der Brennstäben füllt den Reaktorkern mit dem neuen Brennstoff. Dabei wir die Strahlung höher.</value>
+	</data>
+	<data name="Replay" xml:space="preserve">
+		<value>Abspielen</value>
+	</data>
+	<data name="Replay0" xml:space="preserve">
+		<value>Abspielen</value>
+	</data>
+	<data name="RestoreGenerator" xml:space="preserve">
+		<value>Turbine wiederherstellen</value>
+	</data>
+	<data name="RestoreWorker" xml:space="preserve">
+		<value>Mitarbeiter wiederherstellen</value>
+	</data>
+	<data name="RodsDes" xml:space="preserve">
+		<value>Der Stabfall
+Beim Energieabschaltung fallen die  Kontrollstäbe mit Hilfe ihrer Gewicht in die aktive Zone, um die Reaktion zu dämpfen.</value>
+	</data>
+	<data name="Safe" xml:space="preserve">
+		<value>Sicherheit</value>
+	</data>
+	<data name="SelfDes" xml:space="preserve">
+		<value>Energieautarkie
+Die Energie aus dem Turbogenerator wird für den Betrieb des Kernkraftwerks verwendet. Nützlich bei einem Stromausfall.</value>
+	</data>
+	<data name="Share" xml:space="preserve">
+		<value>Hast du die App gefallen? Bewerte es!</value>
+	</data>
+	<data name="ShareText" xml:space="preserve">
+		<value>Hast du einen Freund, der sich für dieses Spiel interessiert? Zeig es ihm!</value>
+	</data>
+	<data name="Start" xml:space="preserve">
+		<value>Start</value>
+	</data>
+	<data name="summer2018" xml:space="preserve">
+		<value>Es wird im Sommer 2018 erwartet</value>
+	</data>
+	<data name="Time" xml:space="preserve">
+		<value>Zeit</value>
+	</data>
+	<data name="TimeIsOver" xml:space="preserve">
+		<value>Die Zeit ist vorbei!</value>
+	</data>
+	<data name="ToMainMenu" xml:space="preserve">
+		<value>Zum Hauptmenü</value>
+	</data>
+	<data name="Transl1_1" xml:space="preserve">
+		<value>Willkommen, Kursant! Bevor das Lernen anzufangen, haben Sie ein bisschen Spaß und machen die erste Aufgabe - zerstöre die Station! </value>
+	</data>
+	<data name="Transl1_2" xml:space="preserve">
+		<value>Hier ist ein kleiner Tipp: drücken Sie beliebige Tasten und vergessen nicht, das man das Zoom verändern kann.</value>
+	</data>
+	<data name="Transl10_1" xml:space="preserve">
+		<value>Der neue Reaktor steht zu Ihrer Verfügung.</value>
+	</data>
+	<data name="Transl11_1" xml:space="preserve">
+		<value>Ich liebe Japan... So eine stille schöne Küste... 2011 war bestimmt erfolgreich.</value>
+	</data>
+	<data name="Transl11_2" xml:space="preserve">
+		<value>Hmmm...es ist seltsam.. Mir scheint, ich sehe eine Welle...</value>
+	</data>
+	<data name="Transl11_3" xml:space="preserve">
+		<value>Tausend Teufel! Wer hätte das geglaubt, dass es passieren könnte! Das ganze System ist kaputtgegangen. Ich weiß nicht wie, aber wir sollen die Temperatur des Reaktors und der Turbine unter 100 Grad absenken. Hätten wir alles im Voraus gewusst... </value>
+	</data>
+	<data name="Transl12_0" xml:space="preserve">
+		<value>Unsere Wissenschfatler  haben die Zeitmaschine erfunden. Es war beschlossen, der Nuklearkatastrophe von Tschernobyl vorzubeugen. Für diese große Mission haben wir Sie, Kamerad, gewählt!</value>
+	</data>
+	<data name="Transl12_1" xml:space="preserve">
+		<value>Die Nuklearkatastrophe von Tschernobyl ereignete sich am 26. April 1986 in Block 4 des Kernkraftwerks Tschernobyl während des Experiments mit dem Rotorsauslauf des Turbogenerators. Wenn die Elektrizität unerwartet abstellt, muss sich die Turbine nach dem Trägheitskraft drehen und das Wasser durch den Reaktorkern pumpen. </value>
+	</data>
+	<data name="Transl12_2" xml:space="preserve">
+		<value>Erreichen Sie die Temperatur des Kernreaktors über 2300 Grad und heben die Kennziffern (поднимаем ведь показатели, а не сами стержни?) der Kontrollstäbe zu ihrem Maximum. Dann schalten wir die Elektrizitätsversorgung  und die Sicherheitssysteme ab. Der Turbogenerator gibt Ihnen ein paar Sekunden Kapazität für die Lenkung. Regulieren die Parameter so ein, damit die Temperatur des Reaktors unter 300 wird. Viel Glück!</value>
+	</data>
+	<data name="Transl12_3" xml:space="preserve">
+		<value>Die Systeme sind ausgeschaltet. Sie haben ein paar Sekunden zur Verfügung. Bemühen Sie sich! Und... es war mir eine große Ehre, mit Ihnen zu arbeiten, lieber Freund. </value>
+	</data>
+	<data name="Transl2_1" xml:space="preserve">
+		<value>Wieder willkommen, Ingenieur! Jetzt beginnen wir von den Anfangsgründen. Die Kernreaktion in den Brennstäben entwickelt die Wärme. </value>
+	</data>
+	<data name="Transl2_2" xml:space="preserve">
+		<value>Die  Brennstäben befinden sich in dem Kernreaktor.</value>
+	</data>
+	<data name="Transl2_3" xml:space="preserve">
+		<value>Es gibt spezielle Absorberstäbe, die die Arbeit des Kernreaktors kontrollieren. Wenn sie sich von dem Spaltzone heben, wird die Kernreaktion stärker, die Temperatur steigt. Beim Senken geht die Reaktion aus.</value>
+	</data>
+	<data name="Transl2_4" xml:space="preserve">
+		<value>Die Temperatur und der Druck im Reaktor sieht man auf dem Bildschirm links. Bei der Übersteigerung den zulässigen Werten, geht eine Katastrophe vor (soviel du schon weißt). Der Druck hängt von der Temperatur ab. Sie werden später mit den Verbesserungen bekannt machen, die dir helfen könnten, die Begrenzungen zu überschreiten.</value>
+	</data>
+	<data name="Transl2_5" xml:space="preserve">
+		<value>Machen wir unsere Kenntnisse fest! Fürs Erste heben Sie die Temperatur des Reaktors bis 1000.</value>
+	</data>
+	<data name="Transl2_6" xml:space="preserve">
+		<value>Gut gemacht! Und jetzt senken Sie sie bis 50.</value>
+	</data>
+	<data name="Transl3_1" xml:space="preserve">
+		<value>Hurra, Sie leben noch,  Ingenieur! Nun, setzen wir die Ausbildung fort. Das Wasser wird im Reaktor mit Hilfe der Pumpe durchgepumpt. Sie erwärmt die Turbine und kühlt den Reaktor. In der Turbine dreht der Dampf die Schaufel. Der Generator produziert die Elekrizität.</value>
+	</data>
+	<data name="Transl3_2" xml:space="preserve">
+		<value>Die Turbine kann heißlaufen, passe auf die Temperatur aufmerksam auf.
+
+Das ist ein Läufer für die Lenkung der Pumpe. Je höher ist der Indikator, desto mehr kühlt sich der Kernreaktor und desto heißer wird die Turbine.</value>
+	</data>
+	<data name="Transl3_3" xml:space="preserve">
+		<value>Erwärmen Sie diese Turbine über 350 Grad, um diese Prüfung erfolgreich zu passen!  Passen Sie auf, dass die Temperatur des Kernreaktors soll niedriger als 800.</value>
+	</data>
+	<data name="Transl3_4" xml:space="preserve">
+		<value>Klasse! Dann kühlen Sie die Turbine und den Reaktor unter 100 Grad</value>
+	</data>
+	<data name="Transl4_1" xml:space="preserve">
+		<value>Was für ein lebensfähiger Student ist das! Die vorherige Studenten haben sich schon... ausgeschloßen. Es kommt die Zeit, Geld zu verdienen! Je höher ist die Temperatur der Turbine, desto höher ist die Stationsleistung, desto mehr Geld bekommt man. Die Leistung wird hier gezeigt. Also, khm... Bringen Sie mir 700$ und in diesem Fall legen Sie die Prüfung ab!</value>
+	</data>
+	<data name="Transl5_1" xml:space="preserve">
+		<value>Sogar der Kernbrennstoff ist nicht endlos. Der Zustand der Brennstäben wird auf dieser Skala gezeigt. Je weniger Stoff, desto weniger Wärme produzieren die Absorberstäbe. Um sie zu ersetzen, kaufen Sie im Menü der Verbesserungen „die Ersetzung von Brennstäben“. Achtung! Die Stoffüberlastung folgt zu der Erhöhung der Strahlung!</value>
+	</data>
+	<data name="Transl5_2" xml:space="preserve">
+		<value>Ihre Aufgabe für heute – arbeite die notwendige Anzahl der Energie aus, bevor die Zeit ausgeht. Ran an die Buletten!</value>
+	</data>
+	<data name="Transl6_1" xml:space="preserve">
+		<value>Manchmal passieren im Leben verschiedene Unannehmlichkeiten: verschütteter Kaffee, das Feuer, das Erdbeben. Jedoch haben wir Kampfmittel gegen die grausame Welt! In dem Verbesserungsmenü können Sie das Ventil, der Arbeiter, die Feuerlöschanlage, die Strahlenschutzanlage. Gewinne die Energie während die Akkordzeit und kehre am Leben zurück!</value>
+	</data>
+	<data name="Transl7_1" xml:space="preserve">
+		<value>Man berichtete, dass das Erdbeben heute erwartet wird. Vergessen Sie nicht über den Regenschirm! Und vergessen Sie nicht das Verbesserungsmenü durchzusehen! Dort erwartet Sie den Stabfall und die Selbstversorgung.</value>
+	</data>
+	<data name="Transl8_1" xml:space="preserve">
+		<value>Wir brauchen noch mehr Energie! Heute erwartet Sie die neue Turbine! </value>
+	</data>
+	<data name="Transl9_1" xml:space="preserve">
+		<value>Man sagt, dass man ein neues Sicherheitsstandart angenommen hat. Sehen Sie, ein Eimer Sand ist jetzt nicht genug für sie. Nun  können Sie störfallbedingte Abkühlung kaufen.</value>
+	</data>
+	<data name="TurbineDes" xml:space="preserve">
+		<value>Den Turbogenerator verbessern.
+Mehr Energie und Geld! Reise maximale Temperatur.</value>
+	</data>
+	<data name="Upgrade" xml:space="preserve">
+		<value>Verbesserung</value>
+	</data>
+	<data name="Upgrades" xml:space="preserve">
+		<value>Verbesserungen</value>
+	</data>
+	<data name="Warning" xml:space="preserve">
+		<value>Warnung</value>
+	</data>
+	<data name="WarningText" xml:space="preserve">
+		<value>Das Spiel enthält Szenen von Blut und Schrecken</value>
+	</data>
+	<data name="WaterDes" xml:space="preserve">
+		<value>Notkühlung
+Wenn Chiles Pfeffer zu scharf ist.</value>
+	</data>
+	<data name="YouWon" xml:space="preserve">
+		<value>Du hast gewonnen!</value>
+	</data>
+</root>

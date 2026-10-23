@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root><!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+	<data name="Chernobyl" xml:space="preserve">
+		<value>Chernobyl</value>
+	</data>
+	<data name="ChooseLanguage" xml:space="preserve">
+		<value>choose language</value>
+	</data>
+	<data name="ChooseLevel" xml:space="preserve">
+		<value>Choose Level</value>
+	</data>
+	<data name="ChooseSeason" xml:space="preserve">
+		<value>Choose Season</value>
+	</data>
+	<data name="ContinueGame" xml:space="preserve">
+		<value>Continue game</value>
+	</data>
+	<data name="DangerArea" xml:space="preserve">
+		<value>DangerArea</value>
+	</data>
+	<data name="EarthText" xml:space="preserve">
+		<value>Earth alert text</value>
+	</data>
+	<data name="Effective" xml:space="preserve">
+		<value>Effective</value>
+	</data>
+	<data name="Energy" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Exit" xml:space="preserve">
+		<value>Exit</value>
+	</data>
+	<data name="FireDes" xml:space="preserve">
+		<value>FireDes</value>
+	</data>
+	<data name="FireFightText" xml:space="preserve">
+		<value>Activate Fire Fight System</value>
+	</data>
+	<data name="FireText" xml:space="preserve">
+		<value>Fire alert text</value>
+	</data>
+	<data name="FuelRecharge" xml:space="preserve">
+		<value>Recharge Fuel</value>
+	</data>
+	<data name="Fukushima" xml:space="preserve">
+		<value>Fukushima</value>
+	</data>
+	<data name="GameCompleted" xml:space="preserve">
+		<value>The Game Complited! Congratulations!</value>
+	</data>
+	<data name="GameProgress" xml:space="preserve">
+		<value>Game Progress</value>
+	</data>
+	<data name="GenerTemp" xml:space="preserve">
+		<value>Turbine Temperature</value>
+	</data>
+	<data name="KlapanDes" xml:space="preserve">
+		<value>KlapanDes</value>
+	</data>
+	<data name="Language" xml:space="preserve">
+		<value>Language</value>
+	</data>
+	<data name="Level" xml:space="preserve">
+		<value>Level</value>
+	</data>
+	<data name="LikeIt" xml:space="preserve">
+		<value>Level ended!</value>
+	</data>
+	<data name="LoveAds" xml:space="preserve">
+		<value>Nobody love ads - but it allows the game to be free</value>
+	</data>
+	<data name="Menu" xml:space="preserve">
+		<value>menu</value>
+	</data>
+	<data name="Music" xml:space="preserve">
+		<value>Music</value>
+	</data>
+	<data name="Next" xml:space="preserve">
+		<value>Next</value>
+	</data>
+	<data name="NextLevel" xml:space="preserve">
+		<value>Next Level</value>
+	</data>
+	<data name="NoEnergy" xml:space="preserve">
+		<value>No Energy</value>
+	</data>
+	<data name="NuclearPlant" xml:space="preserve">
+		<value>NUCLEAR POWER PLANT</value>
+	</data>
+	<data name="Others" xml:space="preserve">
+		<value>Others</value>
+	</data>
+	<data name="Pause" xml:space="preserve">
+		<value>Pause</value>
+	</data>
+	<data name="Phobia" xml:space="preserve">
+		<value>Phobia</value>
+	</data>
+	<data name="Power" xml:space="preserve">
+		<value>Power</value>
+	</data>
+	<data name="Radiation" xml:space="preserve">
+		<value>Radiation</value>
+	</data>
+	<data name="RadiationDes" xml:space="preserve">
+		<value>RadiationDes</value>
+	</data>
+	<data name="Rate" xml:space="preserve">
+		<value>Please, rate the game!</value>
+	</data>
+	<data name="ReactorDes" xml:space="preserve">
+		<value>ReactorDes</value>
+	</data>
+	<data name="ReactorDestroyed" xml:space="preserve">
+		<value>Reactor have destroyed!</value>
+	</data>
+	<data name="ReactorPressure" xml:space="preserve">
+		<value>Reactor Pressure</value>
+	</data>
+	<data name="ReactorTemp" xml:space="preserve">
+		<value>Reactor Temperature</value>
+	</data>
+	<data name="RefuelDes" xml:space="preserve">
+		<value>RefuelDes</value>
+	</data>
+	<data name="Replay" xml:space="preserve">
+		<value>Replay</value>
+	</data>
+	<data name="Replay0" xml:space="preserve">
+		<value>Replay</value>
+	</data>
+	<data name="RestoreGenerator" xml:space="preserve">
+		<value>Restore Turbine</value>
+	</data>
+	<data name="RestoreWorker" xml:space="preserve">
+		<value>Restore Worker</value>
+	</data>
+	<data name="RodsDes" xml:space="preserve">
+		<value>RodsDes</value>
+	</data>
+	<data name="Safe" xml:space="preserve">
+		<value>Safe</value>
+	</data>
+	<data name="SelfDes" xml:space="preserve">
+		<value>SelfDes</value>
+	</data>
+	<data name="Share" xml:space="preserve">
+		<value>Do you like the app? Rate us!</value>
+	</data>
+	<data name="ShareText" xml:space="preserve">
+		<value>ShareText</value>
+	</data>
+	<data name="Start" xml:space="preserve">
+		<value>Start simulation</value>
+	</data>
+	<data name="summer2018" xml:space="preserve">
+		<value>comming summer 2018</value>
+	</data>
+	<data name="Time" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="TimeIsOver" xml:space="preserve">
+		<value>Time is Over!</value>
+	</data>
+	<data name="ToMainMenu" xml:space="preserve">
+		<value>To the main menu</value>
+	</data>
+	<data name="Transl1_1" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl1_2" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl10_1" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl11_1" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl11_2" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl11_3" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl12_0" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl12_1" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl12_2" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl12_3" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl2_1" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl2_2" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl2_3" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl2_4" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl2_5" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl2_6" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl3_1" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl3_2" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl3_3" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl3_4" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl4_1" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl5_1" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl5_2" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl6_1" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl7_1" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl8_1" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="Transl9_1" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="TurbineDes" xml:space="preserve">
+		<value>TurbineDes</value>
+	</data>
+	<data name="Upgrade" xml:space="preserve">
+		<value>Upgrade</value>
+	</data>
+	<data name="Upgrades" xml:space="preserve">
+		<value>Upgrades</value>
+	</data>
+	<data name="Warning" xml:space="preserve">
+		<value>Warning</value>
+	</data>
+	<data name="WarningText" xml:space="preserve">
+		<value>this game consist blood and horror scenes</value>
+	</data>
+	<data name="WaterDes" xml:space="preserve">
+		<value>WaterDes</value>
+	</data>
+	<data name="YouWon" xml:space="preserve">
+		<value>You won!</value>
+	</data>
+	<data name="RateIOS" xml:space="preserve">
+		<value>RateIOS</value>
+	</data>
+</root>

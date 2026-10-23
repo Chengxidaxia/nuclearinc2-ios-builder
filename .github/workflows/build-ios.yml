@@ -1,0 +1,215 @@
+name: Build nuclearinc2 iOS IPA
+
+# 在 GitHub 的 macOS runner 上，用 Unity 2017.3.1f1 + iOS Build Support
+# 把本仓库的 Unity 工程导出成 Xcode 工程，再编成 iOS 设备版并打成未签名 ipa。
+#
+# 与 krkrsdl3-ios-builder 的区别：那边是 C++ 源码 cmake 编译；
+# 本作是 Unity 游戏，必须由 Unity 编辑器导出 Xcode 工程。
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+env:
+  UNITY_VERSION: 2017.3.1f1
+  UNITY_CHANGESET: fc1d3344e6ea
+  UNITY_PATH: /Applications/Unity/Unity.app/Contents/MacOS/Unity
+
+jobs:
+  build-ios:
+    name: Unity iOS device build -> ipa
+    runs-on: macos-14
+    timeout-minutes: 355
+
+    steps:
+      - name: Toolchain info
+        run: |
+          set -x
+          sw_vers
+          uname -m
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
+          df -h /
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache Unity installers
+        uses: actions/cache@v4
+        with:
+          path: |
+            /tmp/Unity.pkg
+            /tmp/UnitySetup-iOS.pkg
+          key: unity-pkg-${{ env.UNITY_VERSION }}-${{ env.UNITY_CHANGESET }}
+
+      - name: Install Unity + iOS Support
+        run: |
+          set -e
+          if [ ! -f /tmp/Unity.pkg ]; then
+            curl -fL --retry 3 --retry-delay 5 -o /tmp/Unity.pkg \
+              "https://download.unity3d.com/download_unity/${UNITY_CHANGESET}/MacEditorInstaller/Unity.pkg"
+          fi
+          if [ ! -f /tmp/UnitySetup-iOS.pkg ]; then
+            curl -fL --retry 3 --retry-delay 5 -o /tmp/UnitySetup-iOS.pkg \
+              "https://download.unity3d.com/download_unity/${UNITY_CHANGESET}/MacEditorTargetInstaller/UnitySetup-iOS-Support-for-Editor-${UNITY_VERSION}.pkg"
+          fi
+          ls -la /tmp/Unity.pkg /tmp/UnitySetup-iOS.pkg
+          sudo installer -pkg /tmp/Unity.pkg -target /
+          sudo installer -pkg /tmp/UnitySetup-iOS.pkg -target /
+          "$UNITY_PATH" -version || true
+
+      - name: Activate Unity license
+        env:
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        run: |
+          set -x
+          if [ -n "$UNITY_LICENSE" ]; then
+            echo "$UNITY_LICENSE" > /tmp/unity.ulf
+            "$UNITY_PATH" -batchmode -quit -manualLicenseFile /tmp/unity.ulf -logFile /tmp/activate.log || true
+          elif [ -n "$UNITY_EMAIL" ]; then
+            "$UNITY_PATH" -batchmode -quit -username "$UNITY_EMAIL" -password "$UNITY_PASSWORD" -logFile /tmp/activate.log || true
+          else
+            echo "::error::缺少 UNITY_LICENSE 或 UNITY_EMAIL/UNITY_PASSWORD secret"
+            exit 1
+          fi
+          echo "--- activate log tail ---"
+          tail -60 /tmp/activate.log || true
+
+      - name: Export Xcode project (Unity batchmode)
+        env:
+          IOS_BUNDLE_ID: ${{ vars.IOS_BUNDLE_ID }}
+          IOS_EXPORT_DIR: Builds/iOS
+        run: |
+          set -o pipefail
+          "$UNITY_PATH" -batchmode -quit -nographics \
+            -projectPath "$PWD" \
+            -buildTarget iOS \
+            -executeMethod BuildScript.BuildiOS \
+            -logFile /tmp/unity-build.log 2>&1 | tail -80
+          echo "--- unity build log tail ---"
+          tail -100 /tmp/unity-build.log || true
+          if [ ! -d Builds/iOS ]; then
+            echo "::error::Unity 没有产出 Builds/iOS（导出失败）"
+            exit 1
+          fi
+          echo "--- exported output ---"
+          ls -la Builds/iOS | head -40
+
+      - name: Build with xcodebuild
+        run: |
+          set -o pipefail
+          cd Builds/iOS
+          xcodebuild -project Unity-iPhone.xcodeproj \
+            -scheme Unity-iPhone \
+            -sdk iphoneos \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            ENABLE_BITCODE=NO \
+            ARCHS=arm64 \
+            ONLY_ACTIVE_ARCH=NO \
+            IPHONEOS_DEPLOYMENT_TARGET=12.0 \
+            build 2>&1 | tee /tmp/xcode.log | tail -100
+
+      - name: Verify app bundle completeness
+        run: |
+          APP=$(find Builds/iOS/build -type d -name "*.app" -not -path "*/Intermediates/*" | head -1)
+          echo "APP=$APP"
+          if [ -z "$APP" ]; then
+            echo "::error::没有产出 .app"
+            find Builds/iOS/build -maxdepth 4 -type d | head -40
+            exit 1
+          fi
+          ls -la "$APP"
+          EXE=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleExecutable' "$APP/Info.plist" 2>/dev/null || echo Unity-iPhone)
+          echo "CFBundleExecutable=$EXE"
+          if [ ! -f "$APP/$EXE" ]; then
+            echo "::error::app 内没有可执行文件 $EXE"
+            exit 1
+          fi
+          echo "executable size: $(stat -f%z "$APP/$EXE") bytes"
+          stat -f%z "$APP/$EXE" | awk '{ if ($1 < 1000000) { print "::error::executable < 1MB, 可能是空壳"; exit 1 } }'
+
+      - name: Package unsigned IPA
+        run: |
+          set -e
+          APP=$(find Builds/iOS/build -type d -name "*.app" -not -path "*/Intermediates/*" | head -1)
+          echo "APP=$APP"
+          APP_NAME=$(basename "$APP")
+          python3 - "$APP/Info.plist" "$APP_NAME" <<'PYEOF'
+          import plistlib, sys
+          p, app_name = sys.argv[1], sys.argv[2]
+          with open(p, "rb") as f:
+              pl = plistlib.load(f)
+          added = []
+          for k, v in [
+              ("CFBundleName", "Nuclear inc 2"),
+              ("CFBundleDisplayName", "Nuclear inc 2"),
+              ("CFBundleVersion", "1"),
+              ("CFBundleShortVersionString", "1.4.30"),
+              ("UILaunchScreen", {}),
+              ("UISupportedInterfaceOrientations", [
+                  "UIInterfaceOrientationPortrait",
+                  "UIInterfaceOrientationLandscapeLeft",
+                  "UIInterfaceOrientationLandscapeRight"]),
+              ("UIFileSharingEnabled", True),
+              ("LSSupportsOpeningDocumentsInPlace", True),
+          ]:
+              if k not in pl or pl.get(k) in (None, "", []):
+                  pl[k] = v
+                  added.append(k)
+          with open(p, "wb") as f:
+              plistlib.dump(pl, f, fmt=plistlib.FMT_BINARY)
+          print("plist fixed:", ", ".join(added) if added else "(already complete)")
+          PYEOF
+          /usr/libexec/PlistBuddy -c Print "$APP/Info.plist" | grep -E "CFBundleIdentifier|CFBundleExecutable|CFBundleVersion|UILaunchScreen" || true
+          rm -rf Payload nuclearinc2-device.ipa
+          mkdir -p Payload
+          cp -R "$APP" Payload/
+          zip -qry nuclearinc2-device.ipa Payload
+          ls -la nuclearinc2-device.ipa
+
+      - name: Upload IPA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuclearinc2-ios-ipa
+          path: nuclearinc2-device.ipa
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Publish to Release
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "ios-build-${{ github.run_number }}" nuclearinc2-device.ipa \
+            --title "nuclearinc2 iOS build #${{ github.run_number }}" \
+            --notes "Unsigned iOS device ipa (Unity 2017.3.1f1 export, no code signing)." || true
+
+      - name: Upload build logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-logs
+          path: |
+            /tmp/unity-build.log
+            /tmp/activate.log
+            /tmp/xcode.log
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Dump logs into the job output on failure
+        if: failure()
+        run: |
+          echo "========== UNITY BUILD LOG (tail 200) =========="
+          tail -200 /tmp/unity-build.log 2>/dev/null || echo "(no unity log)"
+          echo "========== XCODE LOG (tail 200) =========="
+          tail -200 /tmp/xcode.log 2>/dev/null || echo "(no xcode log)"
