@@ -59,9 +59,19 @@ jobs:
               "https://download.unity3d.com/download_unity/${UNITY_CHANGESET}/MacEditorInstaller/Unity-${UNITY_VERSION}.pkg"
           fi
           ls -la /tmp/Unity.pkg
-          sudo installer -pkg /tmp/Unity.pkg -target / -verboseR
-          echo "--- installed? ---"
-          ls -la /Applications/Unity/Unity.app/Contents/MacOS/ || true
+          # 不用 `installer`：在 GitHub runner 上会挂死（超时也不生效）。
+          # 改为直接展开 flat pkg，把 Unity.app 拷进 /Applications。
+          rm -rf /tmp/unity_expanded
+          pkgutil --expand-full /tmp/Unity.pkg /tmp/unity_expanded
+          echo "--- expanded top ---"
+          find /tmp/unity_expanded -maxdepth 2 | head -30
+          SRC=$(find /tmp/unity_expanded -maxdepth 8 -name "Unity.app" -type d | head -1)
+          echo "SRC=$SRC"
+          test -n "$SRC"
+          mkdir -p /Applications/Unity
+          rm -rf /Applications/Unity/Unity.app
+          cp -R "$SRC" /Applications/Unity/Unity.app
+          ls -la /Applications/Unity/Unity.app/Contents/MacOS/
           if [ ! -x "$UNITY_PATH" ]; then
             FOUND=$(find /Applications -maxdepth 6 -type f -name Unity -path "*MacOS*" 2>/dev/null | head -1)
             echo "fallback Unity at: $FOUND"
@@ -79,7 +89,16 @@ jobs:
               "https://download.unity3d.com/download_unity/${UNITY_CHANGESET}/MacEditorTargetInstaller/UnitySetup-iOS-Support-for-Editor-${UNITY_VERSION}.pkg"
           fi
           ls -la /tmp/UnitySetup-iOS.pkg
-          sudo installer -pkg /tmp/UnitySetup-iOS.pkg -target / -verboseR
+          rm -rf /tmp/ios_expanded
+          pkgutil --expand-full /tmp/UnitySetup-iOS.pkg /tmp/ios_expanded
+          echo "--- expanded top ---"
+          find /tmp/ios_expanded -maxdepth 2 | head -30
+          SRC=$(find /tmp/ios_expanded -maxdepth 8 -name "iOSSupport" -type d | head -1)
+          echo "SRC=$SRC"
+          test -n "$SRC"
+          mkdir -p /Applications/Unity/Unity.app/Contents/PlaybackEngines
+          rm -rf /Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport
+          cp -R "$SRC" /Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport
           echo "--- playback engines ---"
           ls -la /Applications/Unity/Unity.app/Contents/PlaybackEngines/ || true
 
