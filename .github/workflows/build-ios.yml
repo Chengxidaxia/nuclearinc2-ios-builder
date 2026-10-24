@@ -15,8 +15,10 @@ permissions:
   contents: write
 
 env:
-  UNITY_VERSION: 2017.3.1f1
-  UNITY_CHANGESET: fc1d3344e6ea
+  # 2017.3.1f1 在 macOS 14 上不可用（旧版编辑器含 32 位 importer 进程，Catalina+ 起即不支持）。
+  # 2019.4.40f1 是 64 位 LTS，与 2017.3 跨度最小，Unity 打开工程时会自动升级资产。
+  UNITY_VERSION: 2019.4.40f1
+  UNITY_CHANGESET: ffc62b691db5
   UNITY_PATH: /Applications/Unity/Unity.app/Contents/MacOS/Unity
 
 jobs:
@@ -54,12 +56,17 @@ jobs:
           if [ ! -s /tmp/Unity.pkg ]; then
             curl -fL --retry 5 --retry-all-errors --retry-delay 5 \
               -o /tmp/Unity.pkg \
-              "https://download.unity3d.com/download_unity/${UNITY_CHANGESET}/MacEditorInstaller/Unity.pkg"
+              "https://download.unity3d.com/download_unity/${UNITY_CHANGESET}/MacEditorInstaller/Unity-${UNITY_VERSION}.pkg"
           fi
           ls -la /tmp/Unity.pkg
           sudo installer -pkg /tmp/Unity.pkg -target / -verboseR
           echo "--- installed? ---"
           ls -la /Applications/Unity/Unity.app/Contents/MacOS/ || true
+          if [ ! -x "$UNITY_PATH" ]; then
+            FOUND=$(find /Applications -maxdepth 6 -type f -name Unity -path "*MacOS*" 2>/dev/null | head -1)
+            echo "fallback Unity at: $FOUND"
+            if [ -n "$FOUND" ]; then echo "UNITY_PATH=$FOUND" >> "$GITHUB_ENV"; fi
+          fi
           "$UNITY_PATH" -version || true
 
       - name: Install iOS Build Support
