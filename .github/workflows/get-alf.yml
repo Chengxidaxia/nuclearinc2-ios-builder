@@ -1,0 +1,82 @@
+name: Get Unity activation file (.alf)
+
+# 用途：本机没有 Unity 时，用 runner 生成「手动激活文件」(.alf)。
+# 流程：
+#   1) 手动跑一次本 workflow
+#   2) 下载 artifact `unity-alf`（Unity_v2019.4.40f1.alf）
+#   3) 打开 https://license.unity3d.com/manual ，登录 Unity 账号，上传 .alf
+#   4) 选择 Personal（免费），下载得到的 .ulf
+#   5) 把 .ulf 全文存进仓库 secret `UNITY_LICENSE`
+#   6) 回到主 workflow（Build nuclearinc2 iOS IPA）重跑
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  UNITY_VERSION: 2019.4.40f1
+  UNITY_CHANGESET: ffc62b691db5
+  UNITY_PATH: /Applications/Unity/Unity.app/Contents/MacOS/Unity
+
+jobs:
+  get-alf:
+    name: generate .alf on macOS runner
+    runs-on: macos-14
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache Unity installer
+        uses: actions/cache@v4
+        with:
+          path: /tmp/Unity.pkg
+          key: unity-pkg-${{ env.UNITY_VERSION }}-${{ env.UNITY_CHANGESET }}
+
+      - name: Install Unity editor
+        timeout-minutes: 30
+        run: |
+          set -euxo pipefail
+          if [ ! -s /tmp/Unity.pkg ]; then
+            curl -fL --retry 5 --retry-all-errors --retry-delay 5 \
+              -o /tmp/Unity.pkg \
+              "https://download.unity3d.com/download_unity/${UNITY_CHANGESET}/MacEditorInstaller/Unity-${UNITY_VERSION}.pkg"
+          fi
+          rm -rf /tmp/unity_expanded
+          pkgutil --expand-full /tmp/Unity.pkg /tmp/unity_expanded
+          SRC=$(find /tmp/unity_expanded -maxdepth 8 -name "Unity.app" -type d | head -1)
+          test -n "$SRC"
+          mkdir -p /Applications/Unity
+          rm -rf /Applications/Unity/Unity.app
+          cp -R "$SRC" /Applications/Unity/Unity.app
+          "$UNITY_PATH" -version || true
+
+      - name: Create manual activation file
+        run: |
+          set -euxo pipefail
+          cd "$GITHUB_WORKSPACE"
+          "$UNITY_PATH" -batchmode -nographics -createManualActivationFile -logFile /tmp/alf.log || true
+          echo "--- log tail ---"
+          tail -80 /tmp/alf.log || true
+          echo "--- alf files ---"
+          ls -la *.alf 2>/dev/null || true
+
+      - name: Upload .alf
+        uses: actions/upload-artifact@v4
+        with:
+          name: unity-alf
+          path: "*.alf"
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: alf-log
+          path: /tmp/alf.log
+          if-no-files-found: ignore
+          retention-days: 3
