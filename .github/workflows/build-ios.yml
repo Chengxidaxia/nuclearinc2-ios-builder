@@ -46,21 +46,35 @@ jobs:
             /tmp/UnitySetup-iOS.pkg
           key: unity-pkg-${{ env.UNITY_VERSION }}-${{ env.UNITY_CHANGESET }}
 
-      - name: Install Unity + iOS Support
+      - name: Install Unity editor
+        timeout-minutes: 30
         run: |
-          set -e
-          if [ ! -f /tmp/Unity.pkg ]; then
-            curl -fL --retry 3 --retry-delay 5 -o /tmp/Unity.pkg \
+          set -euxo pipefail
+          df -h /
+          if [ ! -s /tmp/Unity.pkg ]; then
+            curl -fL --retry 5 --retry-all-errors --retry-delay 5 \
+              -o /tmp/Unity.pkg \
               "https://download.unity3d.com/download_unity/${UNITY_CHANGESET}/MacEditorInstaller/Unity.pkg"
           fi
-          if [ ! -f /tmp/UnitySetup-iOS.pkg ]; then
-            curl -fL --retry 3 --retry-delay 5 -o /tmp/UnitySetup-iOS.pkg \
+          ls -la /tmp/Unity.pkg
+          sudo installer -pkg /tmp/Unity.pkg -target / -verboseR
+          echo "--- installed? ---"
+          ls -la /Applications/Unity/Unity.app/Contents/MacOS/ || true
+          "$UNITY_PATH" -version || true
+
+      - name: Install iOS Build Support
+        timeout-minutes: 30
+        run: |
+          set -euxo pipefail
+          if [ ! -s /tmp/UnitySetup-iOS.pkg ]; then
+            curl -fL --retry 5 --retry-all-errors --retry-delay 5 \
+              -o /tmp/UnitySetup-iOS.pkg \
               "https://download.unity3d.com/download_unity/${UNITY_CHANGESET}/MacEditorTargetInstaller/UnitySetup-iOS-Support-for-Editor-${UNITY_VERSION}.pkg"
           fi
-          ls -la /tmp/Unity.pkg /tmp/UnitySetup-iOS.pkg
-          sudo installer -pkg /tmp/Unity.pkg -target /
-          sudo installer -pkg /tmp/UnitySetup-iOS.pkg -target /
-          "$UNITY_PATH" -version || true
+          ls -la /tmp/UnitySetup-iOS.pkg
+          sudo installer -pkg /tmp/UnitySetup-iOS.pkg -target / -verboseR
+          echo "--- playback engines ---"
+          ls -la /Applications/Unity/Unity.app/Contents/PlaybackEngines/ || true
 
       - name: Activate Unity license
         env:
