@@ -54,6 +54,15 @@ jobs:
           cp -R "$SRC" /Applications/Unity/Unity.app
           "$UNITY_PATH" -version || true
 
+      - name: Prepare Unity license directory
+        run: |
+          set -euxo pipefail
+          # 用 pkgutil 解压安装时，installer 才会创建的系统级许可证目录不存在，
+          # Unity 在 batchmode 下会尝试弹对话框要权限并直接取消 -> 必须手动建好。
+          sudo mkdir -p "/Library/Application Support/Unity"
+          sudo chmod 777 "/Library/Application Support/Unity"
+          ls -la "/Library/Application Support/Unity"
+
       - name: Create manual activation file
         timeout-minutes: 10
         run: |
