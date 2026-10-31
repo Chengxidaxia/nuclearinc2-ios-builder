@@ -111,9 +111,13 @@ jobs:
           set -x
           if [ -n "$UNITY_LICENSE" ]; then
             echo "$UNITY_LICENSE" > /tmp/unity.ulf
-            "$UNITY_PATH" -batchmode -quit -manualLicenseFile /tmp/unity.ulf -logFile /tmp/activate.log || true
+            perl -e 'alarm shift; exec @ARGV' 300 \
+              arch -x86_64 "$UNITY_PATH" -batchmode -quit -nographics \
+              -manualLicenseFile /tmp/unity.ulf -logFile /tmp/activate.log || echo "EXIT=$?"
           elif [ -n "$UNITY_EMAIL" ]; then
-            "$UNITY_PATH" -batchmode -quit -username "$UNITY_EMAIL" -password "$UNITY_PASSWORD" -logFile /tmp/activate.log || true
+            perl -e 'alarm shift; exec @ARGV' 300 \
+              arch -x86_64 "$UNITY_PATH" -batchmode -quit -nographics \
+              -username "$UNITY_EMAIL" -password "$UNITY_PASSWORD" -logFile /tmp/activate.log || echo "EXIT=$?"
           else
             echo "::error::缺少 UNITY_LICENSE 或 UNITY_EMAIL/UNITY_PASSWORD secret"
             exit 1
@@ -127,7 +131,7 @@ jobs:
           IOS_EXPORT_DIR: Builds/iOS
         run: |
           set -o pipefail
-          "$UNITY_PATH" -batchmode -quit -nographics \
+          arch -x86_64 "$UNITY_PATH" -batchmode -quit -nographics \
             -projectPath "$PWD" \
             -buildTarget iOS \
             -executeMethod BuildScript.BuildiOS \

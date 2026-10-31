@@ -55,12 +55,19 @@ jobs:
           "$UNITY_PATH" -version || true
 
       - name: Create manual activation file
+        timeout-minutes: 10
         run: |
-          set -euxo pipefail
+          set -uxo pipefail
           cd "$GITHUB_WORKSPACE"
-          "$UNITY_PATH" -batchmode -nographics -createManualActivationFile -logFile /tmp/alf.log || true
+          uname -m
+          file "$UNITY_PATH" || true
+          # runner 是 arm64，Unity 2019.4 是 x86_64 -> 必须显式走 Rosetta。
+          # 用 perl alarm 兜底：超过 300s 直接杀掉，避免像上次那样挂 58 分钟。
+          perl -e 'alarm shift; exec @ARGV' 300 \
+            arch -x86_64 "$UNITY_PATH" -batchmode -nographics -quit \
+            -createManualActivationFile -logFile /tmp/alf.log || echo "UNITY_EXIT=$?"
           echo "--- log tail ---"
-          tail -80 /tmp/alf.log || true
+          tail -80 /tmp/alf.log 2>/dev/null || echo "(no alf log)"
           echo "--- alf files ---"
           ls -la *.alf 2>/dev/null || true
 
