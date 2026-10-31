@@ -1,0 +1,37 @@
+name: diag-runner-arch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  macos14:
+    name: macos-14 arch + rosetta
+    runs-on: macos-14
+    timeout-minutes: 10
+    steps:
+      - name: Probe
+        run: |
+          echo "=== uname ==="
+          uname -m
+          echo "=== cpu ==="
+          sysctl -n machdep.cpu.brand_string || true
+          echo "=== translated? ==="
+          sysctl -n sysctl.proc_translated 2>/dev/null || echo "n/a"
+          echo "=== sw_vers ==="
+          sw_vers
+          echo "=== rosetta probe ==="
+          if arch -x86_64 /usr/bin/uname -m; then echo "ROSETTA_OK"; else echo "ROSETTA_MISSING"; fi
+          echo "=== homebrew path ==="
+          which git
+          echo "=== xcode ==="
+          xcodebuild -version || true
+
+  macos13:
+    name: macos-13 intel availability
+    runs-on: macos-13
+    timeout-minutes: 10
+    steps:
+      - name: Probe
+        run: |
+          uname -m
+          sw_vers
